@@ -4,11 +4,11 @@ import { withAuth } from '../components/AuthProvider';
 
 class Navbar extends Component {
   render() {
-    const { isLogged, user, logout } = this.props;
-    const { username } = user;
+    const { isLogged, logout } = this.props;
     if (isLogged) {
       return <div>
-        <p>username: { username }</p>
+        <Link to='/home'>Home</Link>
+        <Link to='/profile/me'>My profile</Link>
         <p onClick={logout}>Logout</p>
       </div>
     } else {
@@ -17,7 +17,7 @@ class Navbar extends Component {
         <Link to='/signup'>Signup</Link>
       </div>
     }
-  
+
   }
 }
 
