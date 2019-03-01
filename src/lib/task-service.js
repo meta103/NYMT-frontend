@@ -2,33 +2,31 @@ import axios from 'axios';
 
 class Task {
   constructor() {
-    this.auth = axios.create({
+    this.tasks = axios.create({
       baseURL: 'http://localhost:5000',
       withCredentials: true
     })
   }
 
-  // signup(user) {
-  //   const { name, email, password } = user;
-  //   return this.auth.post('/auth/signup', { name, email, password })
-  //     .then(({ data }) => data);
-  // }
+  create(task) {
+    const { owner, action, to, toId, date, notes } = task;
+    return this.tasks.post('/tasks/new', { owner, action, to, toId, date, notes })
+      .then(({ data }) => {
+        return data
+      })
+  }
 
-  // login(user) {
-  //   const { email, password } = user;
-  //   return this.auth.post('/auth/login', { email, password })
-  //     .then(({ data }) => data);
-  // }
+  showTasksList(userId) {
+    return this.tasks.get('/tasks/list', userId)
+      .then(({ data }) => data)
+  }
 
-  // logout() {
-  //   return this.auth.post('/auth/logout', {})
-  //     .then(response => response.data)
-  // }
+  showTasksDetails(taskId) {
+    return this.tasks.get(`/tasks/details/${taskId}`)
+      .then(({ data }) => data[0])
+  }
 
-  // me(user) {
-  //   return this.auth.get('/auth/me')
-  //     .then(response => response.data)
-  // }
+
 }
 
 const task = new Task();

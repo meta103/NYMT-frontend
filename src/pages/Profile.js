@@ -8,7 +8,7 @@ class Profile extends Component {
     const { name, surname, email, jobtitle, phone, company, address, linkedin, } = user;
     if (isLogged) {
       return <div>
-        <p>This is your Business Card!</p>
+        <h1>This is your Business Card!</h1>
         <p>Name: {name}</p>
         <p>Surname: {surname}</p>
         <p>Email: {email} </p>

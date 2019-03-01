@@ -30,6 +30,7 @@ class Contactlist extends Component {
     //   return (
     return (
       <div>
+        <h1>My contacts</h1>
         {this.state.contactsArray.map((contact) => {
           return <ContactsCard name={contact.name} jobtitle={contact.jobtitle} id={contact._id} />
         })}

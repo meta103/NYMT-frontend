@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 class Buttonsbottom extends Component {
   render() {
-    const { isLogged, logout } = this.props;
+    const { isLogged } = this.props;
     if (isLogged) {
       return (
         <Navbar bg="light" fixed="bottom">
@@ -16,7 +16,7 @@ class Buttonsbottom extends Component {
             <Nav.Link> <Link to='/home'>SCAN QR CODE</Link></Nav.Link>
 
 
-            <Nav.Link> <Link to='/home'>My tasks</Link></Nav.Link>
+            <Nav.Link> <Link to='/tasks'>My tasks</Link></Nav.Link>
           </Nav>
         </Navbar>
 

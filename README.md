@@ -70,12 +70,12 @@ CRM features
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-  - restaurant.list()
-  - restaurant.search(terms)
-  - restaurant.create(data)
-  - restaurant.detail(id)
-  - restaurant.addFavorite(id)
-  - restaurant.removeFavorite(id)   
+  - editprofile.edit(user)
+  - contacts.findContact(contactId)
+  - contacts.addContact(contactUserIdAndContacts)
+  - contacts.showContactsList(userObject)
+  - tasks.create(task)
+  - tasks.showTasksList(userId)
 
 # Server
 
@@ -137,34 +137,55 @@ notes - String
 - POST /auth/logout
   - body: (empty)
   - 204
-- POST /user/me/favorite
+- GET /profile/me
   - body:
-    - restaurantId
+    - my business card
   - validation
     - id is valid (404)
     - id exists (404)
-  - add to favorites if not there yet
   - updates user in session
-- DELETE /user/me/favorite/:restaurantId
+- PUT /profile/me/edit
+  - body:
+    - Form to edit my business card
   - validation
     - id is valid (404)
     - id exists (404)
-  - body: (empty - the user is already stored in the session)
-  - remove from favorites
   - updates user in session
-- GET /restaurant?terms=foo
-  - use search criteria if terms provided
-  - 200 with array of restaurants
-- POST /restaurant
+- GET /contacts
   - body:
-    - name
-    - phone
-    - address
+    - display a list of contacts
   - validation
-    - fields not empty
-  - create restaurant
-  - 200 with restaurant object
-- GET /restaurant/:id
+    - id is valid (404)
+    - id exists (404)
+  - updates user in session
+- GET /contacts/:id
+  - body:
+    - display the details of the contact
+  - validation
+    - id is valid (404)
+    - id exists (404)
+  - updates user in session
+- GET /tasks
+  - body:
+    - display a list of pending tasks
+  - validation
+    - id is valid (404)
+    - id exists (404)
+  - updates user in session
+- POST /tasks/new
+  - body:
+    - display a form to submit a new task
+  - validation
+    - id is valid (404)
+    - id exists (404)
+  - updates user in session
+- GET /tasks/:id
+  - body:
+    - display the details of the task
+  - validation
+    - id is valid (404)
+    - id exists (404)
+  - updates user in session
 
   
 

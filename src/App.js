@@ -14,6 +14,8 @@ import Contactlist from './pages/Contact-list'
 import Buttonsbottom from './components/Buttonsbottom';
 import './app.css';
 import NewTask from './pages/Task-new';
+import Taskslist from './pages/Tasks-list';
+import Task from './pages/Task';
 
 
 
@@ -31,7 +33,9 @@ class App extends Component {
             <PrivateRoute exact path="/profile/me/edit" component={Edit} />
             <PrivateRoute exact path="/contacts" component={Contactlist} />
             <PrivateRoute path="/contacts/:id" component={Contact} />
-            <PrivateRoute path="/tasks/new" component={NewTask} />
+            <PrivateRoute exact path="/tasks" component={Taskslist} />
+            <PrivateRoute exact path="/tasks/new" component={NewTask} />
+            <PrivateRoute path="/tasks/:id" component={Task} />
           </Switch>
 
           <Buttonsbottom />

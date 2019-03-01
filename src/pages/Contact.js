@@ -15,6 +15,7 @@ class Contact extends Component {
     address: '',
     linkedin: '',
     redirect: false,
+    idUser: this.props.match.params.id,
   }
 
   handleAddContact = () => {
@@ -45,7 +46,6 @@ class Contact extends Component {
       //   return this.props.setUser(user)
       // })
       .then((user) => {
-        console.log(user)
         this.setState({
           name: user.name,
           surname: user.surname,
@@ -65,10 +65,14 @@ class Contact extends Component {
   render() {
     const { name, surname, email, jobtitle, phone, company, address, linkedin, redirect } = this.state;
     if (redirect) {
-      return <Redirect to="/tasks/new" />
+      return <Redirect to={{
+        pathname: "/tasks/new",
+        state: { referrer: this.state.idUser, referrer2: this.state.name }
+      }} />
     }
     return (
       <div>
+        <h1>Business Card</h1>
         <p>Name: {name}</p>
         <p>Surname: {surname}</p>
         <p>Email: {email} </p>
@@ -77,7 +81,7 @@ class Contact extends Component {
         <p>Company: {company}</p>
         <p>Address: {address}</p>
         <p>LinkedIn: {linkedin}</p>
-        <div onClick={this.handleAddContact}>Add to my contacts</div>
+        <div onClick={this.handleAddContact}>Assign a task</div>
       </div>
     )
 
