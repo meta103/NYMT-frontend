@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { withAuth } from '../components/AuthProvider';
 import contacts from '../lib/contact-service';
 import { Redirect } from 'react-router';
+import '../app.css';
+import { Image } from 'react-bootstrap';
 
 class Contact extends Component {
   state = {
@@ -72,16 +74,25 @@ class Contact extends Component {
     }
     return (
       <div>
-        <h1>Business Card</h1>
-        <p>Name: {name}</p>
-        <p>Surname: {surname}</p>
-        <p>Email: {email} </p>
-        <p>Job title: {jobtitle}</p>
-        <p>Phone number: {phone}</p>
-        <p>Company: {company}</p>
-        <p>Address: {address}</p>
-        <p>LinkedIn: {linkedin}</p>
-        <div onClick={this.handleAddContact}>Assign a task</div>
+        <h1>{name}'s Business Card</h1>
+        <div class="flip-container">
+
+          <div class="front">
+
+            <p className="BCname">{name} <br /> {surname}</p>
+            <p className="BCjobtitle">{jobtitle}</p>
+            <p className="BCcompany">at {company}</p>
+            <img className="BCicons" src="/images/BCicons.png" alt="" />
+            <p className="BCdetailstipo BCcommonposition BCphone"> {phone}</p>
+            <p className="BCdetailstipo BCcommonposition BCemail">{email} </p>
+            <p className="BCdetailstipo BCcommonposition BClinkedin">{linkedin}</p>
+            <p className="BCdetailstipo BCcommonposition BCaddress">{address}</p>
+
+          </div>
+
+
+        </div>
+        <div className="BCedit" onClick={this.handleAddContact}>Assign a task</div>
       </div>
     )
 
