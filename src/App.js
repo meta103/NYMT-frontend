@@ -16,6 +16,8 @@ import './app.css';
 import NewTask from './pages/Task-new';
 import Taskslist from './pages/Tasks-list';
 import Task from './pages/Task';
+import Test from './pages/QR-scanner';
+
 
 
 
@@ -23,20 +25,23 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-        <div className="container">
+        <div >
           <Navbar />
-          <Switch>
-            <AnonRoute path="/signup" component={Signup} />
-            <AnonRoute path="/login" component={Login} />
-            <PrivateRoute path="/home" component={Private} />
-            <PrivateRoute exact path="/profile/me" component={Profile} />
-            <PrivateRoute exact path="/profile/me/edit" component={Edit} />
-            <PrivateRoute exact path="/contacts" component={Contactlist} />
-            <PrivateRoute path="/contacts/:id" component={Contact} />
-            <PrivateRoute exact path="/tasks" component={Taskslist} />
-            <PrivateRoute exact path="/tasks/new" component={NewTask} />
-            <PrivateRoute path="/tasks/:id" component={Task} />
-          </Switch>
+          <div className="container">
+            <Switch>
+              <AnonRoute path="/signup" component={Signup} />
+              <AnonRoute path="/login" component={Login} />
+              <PrivateRoute path="/home" component={Private} />
+              <PrivateRoute exact path="/profile/me" component={Profile} />
+              <PrivateRoute exact path="/profile/me/edit" component={Edit} />
+              <PrivateRoute exact path="/contacts" component={Contactlist} />
+              <PrivateRoute path="/contacts/:id" component={Contact} />
+              <PrivateRoute exact path="/tasks" component={Taskslist} />
+              <PrivateRoute exact path="/tasks/new" component={NewTask} />
+              <PrivateRoute path="/tasks/:id" component={Task} />
+              <PrivateRoute exact path="/scan" component={Test} />
+            </Switch>
+          </div>
 
           <Buttonsbottom />
 

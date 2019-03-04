@@ -1,3 +1,275 @@
 body { 
-  padding-bottom: 65px; 
+  padding-bottom: 70px; 
+  font-family: 'Nunito', sans-serif;
+  height: 100vh;
+  color: white;
+  background: linear-gradient(180deg, #77C9D4 0%, rgba(90, 189, 151, 0.68) 89.5%, #57BC90 100%);
+  background-attachment: fixed;
+  text-align: center;
+}
+
+h1{
+  font-size: 32px;
+}
+
+.container{
+  padding-bottom: 70px;
+}
+
+.QRContainer{
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 4px 8px rgba(8, 35, 48, 0.24);
+  border-radius: 6px;
+}
+/* ################ Contact Cards ################ */
+
+.contact-card-container{
+  background: #FFFFFF;
+  box-shadow: 0px 16px 24px rgba(99, 148, 140, 0.3);
+  border-radius: 6px;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;  
+}
+
+.ccctitle{
+  margin: 0;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 24px;
+  text-align: center;
+
+  color: #000000
+}
+.cccjobtitle{
+  margin: 0;
+   font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  text-align: center;
+  color: #E36B7A;
+}
+/* ################ Business Card ################ */
+
+.BCShape{
+  position: absolute;
+  width: 280px;
+  height: 445px;
+  left: 47px;
+  top: 118px;
+
+  background: #F2F2F2;
+  box-shadow: 0px 0px 24px #333333;
+  border-radius: 6px;
+}
+
+.BCname{
+  position: absolute;
+  width: 280px;
+  height: 84px;
+  top: 25px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 36px;
+  text-align: center;
+
+  color: #030100;
+
+  mix-blend-mode: darken;
+}
+
+.BCjobtitle{
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  top: 120px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 18px;
+  text-align: center;
+
+  color: #E36B7A;
+
+  mix-blend-mode: darken;
+}
+
+.BCcompany{
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  top: 150px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 18px;
+  text-align: center;
+
+  color: #030100;
+
+  mix-blend-mode: darken;
+}
+
+.BCicons{
+  position: absolute;
+  width: 30px;
+  height: 156px;
+  left: 31px;
+  top: 255px;
+}
+
+.BCdetailstipo{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  font-size: 14px;
+
+  color: #030100;
+
+  mix-blend-mode: darken;
+}
+
+.BCcommonposition{
+  position: absolute;
+  width: 200px;
+  height: 30px;
+  left: 68px;
+  text-align: left;
+  padding-top: 6px;
+}
+
+.BCphone{
+  top: 255px;
+}
+
+.BCemail{
+  top: 297px;
+}
+
+.BClinkedin{
+  top: 339px;
+}
+
+
+.BCaddress{
+  height: 50px;
+  top: 381px;
+}
+
+.BCedit{
+  position: absolute;
+  top: 570px;
+}
+/* ################ Flip effect ################ */
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+  .front{
+    background: #F2F2F2;
+  }
+  .back{
+    background: #E36B7A;
+  }
+.flip-container, .front, .back {
+	position: absolute;
+  width: 280px;
+  height: 445px;
+  left: 47px;
+  top: 118px;
+
+  
+  box-shadow: 0px 0px 24px #333333;
+  border-radius: 6px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+/* ################ Business Card back ################ */
+.QRContainer2{
+  position: absolute;
+  left: 60px;
+  top: 76px;
+  width: 160px;
+  height: 160px;
+  box-shadow: 0px 4px 8px rgba(8, 35, 48, 0.24);
+  border-radius: 6px;
+}
+
+.BCback-primary-text{
+  position: absolute;
+  width: 280px;
+  height: 40px;
+  top: 268px;
+
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 32px;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.BCback-secondary-text{
+  position: absolute;
+  width: 280px;
+  height: 40px;
+  top: 314px;
+
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 12px;
+  text-align: center;
+
+  color: #FFFFFF;
 }

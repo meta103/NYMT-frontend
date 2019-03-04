@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../components/AuthProvider';
+import { Navbar, Nav } from 'react-bootstrap';
 
-class Navbar extends Component {
+class NavBar extends Component {
   render() {
     const { isLogged, logout } = this.props;
     if (isLogged) {
       return <div>
-        <Link to='/home'>Home</Link>
-        <Link to='/profile/me'>My profile</Link>
-        <p onClick={logout}>Logout</p>
+
+        <Navbar collapseOnSelect expand="lg" variant="dark" sticky="top">
+          <Link to='/home'><Navbar.Brand>NTMY</Navbar.Brand></Link>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link><Link to='/home'>Home</Link></Nav.Link>
+              <Nav.Link> <Link to='/profile/me'>My profile</Link></Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link onClick={logout}>Logout</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     } else {
       return <div>
@@ -21,4 +33,4 @@ class Navbar extends Component {
   }
 }
 
-export default withAuth()(Navbar);
+export default withAuth()(NavBar);

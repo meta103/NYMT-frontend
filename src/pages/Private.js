@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../components/AuthProvider';
 import { Image } from 'react-bootstrap';
+
 class Private extends Component {
   render() {
     const { user } = this.props
