@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../components/AuthProvider';
+import moment from 'moment';
 
 class TasksCard extends Component {
   render() {
@@ -9,8 +10,7 @@ class TasksCard extends Component {
 
         <h1>Don't forget to {this.props.action}</h1>
         <h2>{this.props.to}</h2>
-        <p>on {this.props.date}</p>
-
+        <p>{moment(this.props.date).fromNow()}</p>
       </Link >
 
     )

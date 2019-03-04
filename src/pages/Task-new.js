@@ -48,7 +48,7 @@ class NewTask extends Component {
         </Form.Group>
         <Form.Group>
           <Form.Label>When?</Form.Label>
-          <Form.Check name="date" type="date" label="Check me out" value={date} onChange={this.handleChange} />
+          <Form.Check name="date" type="datetime-local" label="Check me out" value={date} onChange={this.handleChange} />
         </Form.Group>
         <Form.Group >
           <Form.Label>Add some notes</Form.Label>

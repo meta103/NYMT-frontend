@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../components/AuthProvider';
 import task from '../lib/task-service';
+import moment from 'moment';
 
 class Task extends Component {
 
@@ -38,7 +39,7 @@ class Task extends Component {
         <h3>To</h3>
         <p>{this.state.to}</p>
         <h3>Date:</h3>
-        <p>{this.state.date}</p>
+        <p>{moment(this.state.date).format('MMMM Do YYYY, HH:mm')}</p>
         <h3>Notes:</h3>
         <p>{this.state.notes}</p>
       </div>
