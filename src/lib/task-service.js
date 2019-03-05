@@ -26,6 +26,17 @@ class Task {
       .then(({ data }) => data[0])
   }
 
+  updateStatus(taskId) {
+    return this.tasks.put(`/tasks/details/${taskId}`)
+      .then(({ data }) => data)
+  }
+
+  updateOpportunityStatus(object) {
+    return this.tasks.put('/tasks/opp', object)
+      .then(({ data }) => data)
+  }
+
+
 
 }
 

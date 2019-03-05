@@ -4,7 +4,6 @@ import { withAuth } from '../components/AuthProvider';
 import contacts from '../lib/contact-service';
 import { Redirect } from 'react-router';
 import '../app.css';
-import { Image } from 'react-bootstrap';
 
 class Contact extends Component {
   state = {

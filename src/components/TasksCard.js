@@ -5,17 +5,25 @@ import moment from 'moment';
 
 class TasksCard extends Component {
   state = {
-    action: this.props.action
+    action: this.props.action,
   }
+
 
   render() {
     if (this.state.action === "email") {
       return (
         <div className="contact-card-container">
           <Link to={`/tasks/${this.props.id}`}>
-            <h1 className="ccctitle">Send an {this.props.action} to</h1>
-            <h2 className="cccjobtitle">{this.props.to}</h2>
-            <p>{moment(this.props.date).fromNow()}</p>
+            <div className="TCcontainer">
+              <div>
+                <img src="/images/email_24px.png" alt="" />
+              </div>
+              <div className="TCTextContainer">
+                <p className="TCall TCaction">Send an {this.props.action} to</p>
+                <p className="TCall TCperson">{this.props.to}</p>
+                <p className="TCall TCdate">{moment(this.props.date).fromNow()}</p>
+              </div>
+            </div>
           </Link >
         </div>
       )
@@ -23,10 +31,16 @@ class TasksCard extends Component {
       return (
         <div className="contact-card-container">
           <Link to={`/tasks/${this.props.id}`}>
-
-            <h1 className="ccctitle">Give a {this.props.action} to</h1>
-            <h2 className="cccjobtitle">{this.props.to}</h2>
-            <p>{moment(this.props.date).fromNow()}</p>
+            <div className="TCcontainer">
+              <div>
+                <img src="/images/call_24px.png" alt="" />
+              </div>
+              <div className="TCTextContainer">
+                <p className="TCall TCaction">Give a {this.props.action} to</p>
+                <p className="TCall TCperson">{this.props.to}</p>
+                <p className="TCall TCdate">{moment(this.props.date).fromNow()}</p>
+              </div>
+            </div>
           </Link >
         </div>
       )
@@ -34,10 +48,16 @@ class TasksCard extends Component {
       return (
         <div className="contact-card-container">
           <Link to={`/tasks/${this.props.id}`}>
-
-            <h1 className="ccctitle">Have a {this.props.action} with</h1>
-            <h2 className="cccjobtitle">{this.props.to}</h2>
-            <p>{moment(this.props.date).fromNow()}</p>
+            <div className="TCcontainer">
+              <div>
+                <img src="/images/people_24px.png" alt="" />
+              </div>
+              <div className="TCTextContainer">
+                <p className="TCall TCaction">Have a {this.props.action} with</p>
+                <p className="TCall TCperson">{this.props.to}</p>
+                <p className="TCall TCdate">{moment(this.props.date).fromNow()}</p>
+              </div>
+            </div>
           </Link >
         </div>
       )

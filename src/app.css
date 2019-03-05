@@ -275,3 +275,96 @@ h1{
 
   color: #FFFFFF;
 }
+
+/* ################ Task Cards ################ */
+
+.TCcontainer{
+  display: flex;
+  padding: 1vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.TCTextContainer{
+  width: 185px;
+}
+
+.TCall{
+  margin: 0;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+
+  color: #000000
+}
+.TCaction{
+  font-size: 20px;
+}
+
+.TCperson{
+  font-size: 18px;
+}
+
+.TCdate{
+  font-size: 14px;
+}
+
+/* ################ Follow up Cards ################ */
+.follow-up-container{
+  background: #FFFFFF;
+  box-shadow: 0px 16px 24px rgba(99, 148, 140, 0.3);
+  border-radius: 6px;
+  margin-top: 1vh;
+  margin-bottom: 2vh;  
+}
+
+.FUCcontainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.FUCtextcontainer{
+  width: 100%;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+.FUCtext{
+  margin: 0;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 16px;
+  text-align: center;
+  color: #000000;
+  
+}
+
+.FUCbuttonscontainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.FUCpinkbutton{
+  background-color: #E36B7A;
+  border: none;
+  color:white;
+  height: 100%;
+  padding: 10px;
+  width: 100px;
+}
+
+.FUCgreenbutton{
+  background-color: #57BC90;
+  border: none;
+  color:white;
+  height: 100%;
+  padding: 10px;
+  width: 100px;
+}

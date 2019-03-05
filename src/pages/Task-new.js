@@ -11,11 +11,12 @@ class NewTask extends Component {
     toId: this.props.location.state.referrer,
     date: '',
     notes: '',
+    status: 'pending',
   }
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { owner, action, to, toId, date, notes } = this.state;
-    task.create({ owner, action, to, toId, date, notes })
+    const { owner, action, to, toId, date, notes, status } = this.state;
+    task.create({ owner, action, to, toId, date, notes, status })
       .then((data) => {
         console.log(data)
       })

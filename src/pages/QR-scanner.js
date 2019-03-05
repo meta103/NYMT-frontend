@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import QrCodeScanner from '@sensorfactdev/qr-code-scanner';
 import QrReader from "react-qr-reader-webcam-js";
 import { withAuth } from '../components/AuthProvider';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Test extends Component {
   constructor(props) {

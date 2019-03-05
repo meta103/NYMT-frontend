@@ -6,20 +6,56 @@ import TasksCard from '../components/TasksCard';
 class Taskslist extends Component {
 
   state = {
-    tasksArray: [],
+    pendingTasksArray: [],
+    doneTasksArray: [],
+    wonTasksArray: [],
+    lostTasksArray: [],
+    currentFilter: [],
+  }
+
+  handleChangeForFiltering = (e) => {
+    const selectedvalue = e.target.value;
+    if (selectedvalue === "done") {
+      return this.setState({
+        currentFilter: this.state.doneTasksArray
+      })
+    } else if (selectedvalue === "won") {
+      return this.setState({
+        currentFilter: this.state.wonTasksArray
+      })
+
+    } else if (selectedvalue === "lost") {
+      return this.setState({
+        currentFilter: this.state.lostTasksArray
+      })
+
+    } else if (selectedvalue === "pending") {
+      return this.setState({
+        currentFilter: this.state.pendingTasksArray
+      })
+
+    }
+
   }
 
   componentDidMount = () => {
     const userId = this.props.user._id;
     task.showTasksList(userId)
       .then((data) => {
+        let pendingTasks = data.filter(task => task.status === "pending")
+        let doneTasks = data.filter(task => task.status === "done")
+        let wonTasks = data.filter(task => task.status === "won")
+        let lostTasks = data.filter(task => task.status === "lost")
         return this.setState({
-          tasksArray: data,
-          isloaded: true,
+          pendingTasksArray: pendingTasks,
+          doneTasksArray: doneTasks,
+          wonTasksArray: wonTasks,
+          lostTasksArray: lostTasks,
+          currentFilter: pendingTasks,
         })
       })
       .then(() => {
-        console.log(this.state.tasksArray)
+        console.log(this.state)
       })
       .catch(error => console.log(error))
   }
@@ -27,9 +63,14 @@ class Taskslist extends Component {
   render() {
     return (
       <div>
-        <h1>Pending tasks</h1>
-        {this.state.tasksArray.map((task) => {
-          return <TasksCard id={task._id} action={task.action} to={task.toName} date={task.date} />
+        <select name="select" id="filter" onChange={this.handleChangeForFiltering}>
+          <option value="pending" selected>Pending tasks</option>
+          <option value="done">Done tasks</option>
+          <option value="won">Won opportunities</option>
+          <option value="lost">Lost opportunities</option>
+        </select>
+        {this.state.currentFilter.map((task) => {
+          return <TasksCard id={task._id} action={task.action} to={task.toName} date={task.date} status={task.status} />
         })}
       </div>
     )
