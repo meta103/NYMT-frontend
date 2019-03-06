@@ -3,6 +3,7 @@ import { withAuth } from '../components/AuthProvider';
 import task from '../lib/task-service';
 import moment from 'moment';
 import { Redirect } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 class Task extends Component {
 
@@ -55,15 +56,15 @@ class Task extends Component {
       return (
         <div>
           <h1>Task details:</h1>
-          <h3>Action:</h3>
-          <p>{this.state.action}</p>
-          <h3>To</h3>
-          <p>{this.state.to}</p>
-          <h3>Date:</h3>
-          <p>{moment(this.state.date).format('MMMM Do YYYY, HH:mm')}</p>
-          <h3>Notes:</h3>
-          <p>{this.state.notes}</p>
-          <button onClick={this.handleForTaskDone}>DONE</button>
+          <h3 className="task-title" >Action:</h3>
+          <p className="task-detail" >{this.state.action}</p>
+          <h3 className="task-title">To</h3>
+          <p className="task-detail">{this.state.to}</p>
+          <h3 className="task-title">Date:</h3>
+          <p className="task-detail">{moment(this.state.date).format('MMMM Do YYYY, HH:mm')}</p>
+          <h3 className="task-title">Notes:</h3>
+          <p className="task-detail">{this.state.notes}</p>
+          <Button onClick={this.handleForTaskDone} className="addtask-done-button" >DONE</Button>
         </div>
       )
 

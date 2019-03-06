@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service';
+import { Link } from 'react-router-dom';
 //import { AuthConsumer } from '../components/AuthProvider';
+import { Button, Form } from 'react-bootstrap';
 
 class Login extends Component {
   state = {
@@ -27,13 +29,24 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>Email:</label>
-        <input type="text" name="email" value={email} onChange={this.handleChange} />
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={this.handleChange} />
-        <input type="submit" value="Login" />
-      </form>
+      <div className="white-background">
+        <img src="images/NTMYlogo.png" alt="" className="img-resize" />
+        <Form onSubmit={this.handleFormSubmit}>
+          <Form.Group>
+            <Form.Label>Email:</Form.Label>
+            <Form.Control type="text" name="email" value={email} onChange={this.handleChange} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" name="password" value={password} onChange={this.handleChange} />
+          </Form.Group>
+          <Button type="submit" value="Login" className="addtask-done-button"> Login </Button>
+        </Form>
+
+        <p>Don't you have an account?
+          <Link to={"/signup"}>Sign up</Link>
+        </p>
+      </div>
     )
   }
 }

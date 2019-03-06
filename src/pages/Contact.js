@@ -4,7 +4,7 @@ import { withAuth } from '../components/AuthProvider';
 import contacts from '../lib/contact-service';
 import { Redirect } from 'react-router';
 import '../app.css';
-import { Button } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 
 class Contact extends Component {
   state = {
@@ -103,6 +103,7 @@ class Contact extends Component {
     } else {
       return (
         <div>
+
           <h1>{name}'s Business Card</h1>
           <div class="flip-container">
 
@@ -117,11 +118,11 @@ class Contact extends Component {
               <p className="BCdetailstipo BCcommonposition BClinkedin">{linkedin}</p>
               <p className="BCdetailstipo BCcommonposition BCaddress">{address}</p>
 
+
+              {this.showButtonContact()}
+
             </div>
-
-            {this.showButtonContact()}
           </div>
-
 
         </div>
       )

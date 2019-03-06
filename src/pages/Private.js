@@ -17,6 +17,14 @@ class Private extends Component {
     tasksdone: [],
   }
 
+  handleColorBox = (number) => {
+    if (number !== 0) {
+      return "smallbox pink"
+    } else {
+      return "smallbox green"
+    }
+  }
+
   componentDidMount = () => {
     const userId = this.props.user._id;
     task.showTasksList(userId)
@@ -65,22 +73,21 @@ class Private extends Component {
   }
 
   render() {
-    const { user } = this.props;
     const { tasksdone } = this.state;
     return (
       <div>
         {/* <h1>Welcome {user.name}</h1> */}
         <h2>My schedule</h2>
         <div className="flex-small-boxes">
-          <div className="smallbox pink">
+          <div className={this.handleColorBox(this.state.callsCounter)}>
             <h1>{this.state.callsCounter}</h1>
             <p>CALLS</p>
           </div>
-          <div className="smallbox green">
+          <div className={this.handleColorBox(this.state.emailsCounter)}>
             <h1>{this.state.emailsCounter}</h1>
             <p>EMAILS</p>
           </div>
-          <div className="smallbox green">
+          <div className={this.handleColorBox(this.state.meetingsCounter)}>
             <h1>{this.state.meetingsCounter}</h1>
             <p>MEETINGS</p>
           </div>

@@ -63,12 +63,15 @@ class Taskslist extends Component {
   render() {
     return (
       <div>
-        <select name="select" id="filter" onChange={this.handleChangeForFiltering}>
-          <option value="pending" selected>Pending tasks</option>
-          <option value="done">Done tasks</option>
-          <option value="won">Won opportunities</option>
-          <option value="lost">Lost opportunities</option>
-        </select>
+        <div className="filter-button-flex">
+          <select name="select" id="filter" onChange={this.handleChangeForFiltering} className="task-filter">
+            <option value="pending" selected>Pending tasks</option>
+            <option value="done">Done tasks</option>
+            <option value="won">Won opportunities</option>
+            <option value="lost">Lost opportunities</option>
+          </select>
+          <img src="/images/filtericon.png" alt="" />
+        </div>
         {this.state.currentFilter.map((task) => {
           return <TasksCard id={task._id} action={task.action} to={task.toName} date={task.date} status={task.status} />
         })}

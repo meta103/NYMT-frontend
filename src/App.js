@@ -17,6 +17,7 @@ import NewTask from './pages/Task-new';
 import Taskslist from './pages/Tasks-list';
 import Task from './pages/Task';
 import Test from './pages/QR-scanner';
+import Landing from './pages/Landing';
 
 
 
@@ -29,6 +30,7 @@ class App extends Component {
           <Navbar />
           <div className="container">
             <Switch>
+              <AnonRoute exact path="/" component={Landing} />
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
               <PrivateRoute path="/home" component={Private} />
@@ -46,7 +48,7 @@ class App extends Component {
           <Buttonsbottom />
 
         </div>
-      </AuthProvider>
+      </AuthProvider >
     )
   }
 }

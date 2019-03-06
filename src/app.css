@@ -12,6 +12,10 @@ h1{
   font-size: 32px;
 }
 
+h2{
+  font-size: 25px;
+}
+
 .container{
   padding-bottom: 70px;
   position: relative;
@@ -174,14 +178,19 @@ h1{
   position: absolute;
   top: 510px;
   left: 130px;
-  width: 120px
+  width: 120px;
+  background-color: #E36B7A;
+  border: none;
+
 }
 
 .BCasignATaskAndAdd{
   position: absolute;
   top: 455px;
   left: 85px;
-  width: 120px
+  width: 120px;
+  background-color: #E36B7A;
+  border: none;
 }
 /* ################ Flip effect ################ */
 
@@ -391,8 +400,6 @@ h1{
   background: #E36B7A;
 }
 
-
-
 .green{
   background: #57BC90;
 }
@@ -447,10 +454,71 @@ h1{
 }
 
 .charttext{
-  color: black;
+  color: #F2F2F2;
   font-size: 14px;
 }
 
 .pink-text{
   color: #E36B7A;
+}
+
+.reset-link-decoration {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.reset-link-decoration:hover {  
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.addtask-done-button{
+  top: 455px;
+  left: 85px;
+  width: 120px;
+  background-color: #E36B7A;
+  border: none;
+  margin-top: 2vh;
+}
+.addtask-done-button:hover {  
+  color: #E36B7A;
+  text-decoration: none;
+}
+
+.task-title{
+  font-size: 30px;
+  text-align: center;
+  color: #E36B7A;
+}
+
+.task-detail{
+  font-size: 20px;
+  text-align: center;
+  color: #f2f2f2;
+}
+
+.task-filter{
+  font-size: 32px;
+  color: white;
+}
+
+.filter-button-flex{
+  display: flex;
+  align-items: center;
+}
+
+.white-background{
+  background-color: #f2f2f2;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+}
+
+.white-background * {
+  opacity: 1;
+}
+
+.img-resize {
+  width:250px; 
+  height: auto;
 }
