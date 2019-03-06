@@ -10,16 +10,20 @@ class Test extends Component {
     this.state = {
       delay: 300,
       redirect: false,
+      contactAdded: false,
       result: "No result"
     };
     this.handleScan = this.handleScan.bind(this);
   }
+
+
   handleScan(data) {
     if (data) {
       this.setState({
         result: data,
         redirect: true,
       })
+
     }
   }
   handleError(err) {

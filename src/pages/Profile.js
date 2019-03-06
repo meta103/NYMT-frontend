@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../components/AuthProvider';
 import '../app.css';
-import { Image } from 'react-bootstrap';
+import { Image, Button } from 'react-bootstrap';
 
 class Profile extends Component {
   render() {
@@ -38,7 +38,8 @@ class Profile extends Component {
 
         </div>
 
-        <Link className="BCedit" to='/profile/me/edit'>Edit</Link>
+        <Link to='/profile/me/edit' ><Button className="BCedit">Edit</Button></Link>
+
       </div>
     } else {
       return <div>

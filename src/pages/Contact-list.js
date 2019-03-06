@@ -8,7 +8,7 @@ import ContactsCard from '../components/ContactsCard';
 class Contactlist extends Component {
 
   state = {
-    contactsArray: this.props.user.contacts,
+    contactsArray: [],
   }
 
   componentDidMount = () => {

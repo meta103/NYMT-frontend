@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withAuth } from '../components/AuthProvider';
 import task from '../lib/task-service';
-import FollowUpCard from '../components/followupCard'
+import FollowUpCard from '../components/followupCard';
+import Chart from '../components/Chart';
 
 class Private extends Component {
   state = {
@@ -68,54 +69,60 @@ class Private extends Component {
     const { tasksdone } = this.state;
     return (
       <div>
-        <h1>Welcome {user.name}</h1>
+        {/* <h1>Welcome {user.name}</h1> */}
         <h2>My schedule</h2>
-        <table>
-          <tr>
-            <th>Calls</th>
-            <th>Emails</th>
-            <th>Meetings</th>
-          </tr>
-          <tr>
-            <td>{this.state.callsCounter}</td>
-            <td>{this.state.emailsCounter}</td>
-            <td>{this.state.meetingsCounter}</td>
-          </tr>
-        </table>
+        <div className="flex-small-boxes">
+          <div className="smallbox pink">
+            <h1>{this.state.callsCounter}</h1>
+            <p>CALLS</p>
+          </div>
+          <div className="smallbox green">
+            <h1>{this.state.emailsCounter}</h1>
+            <p>EMAILS</p>
+          </div>
+          <div className="smallbox green">
+            <h1>{this.state.meetingsCounter}</h1>
+            <p>MEETINGS</p>
+          </div>
+        </div>
         <h2>My stats</h2>
-        <table>
-          <tr>
-            <th>Contacts</th>
-            <th>Tasks</th>
-          </tr>
-          <tr>
-            <td>{this.state.contacts}</td>
-            <td>{this.state.tasks}</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th>Won opps</th>
-            <th>Lost opps</th>
-          </tr>
-          <tr>
-            <td>{this.state.won}</td>
-            <td>{this.state.lost}</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th>Conversion rate</th>
-          </tr>
-          <tr>
-            <td>{Math.round(this.state.conversionratio * 100)}%</td>
-          </tr>
-        </table>
+        <div className="flex-small-boxes">
+          <div className="middlebox">
+            <h1 className="middleboxheader">{this.state.contacts}</h1>
+            <p className="middleboxtext">CONTACTS</p>
+          </div>
+          <div className="middlebox">
+            <h1 className="middleboxheader pink-text">{this.state.tasks}</h1>
+            <p className="middleboxtext">TASKS</p>
+          </div>
+        </div>
+
+        <div className="chart-text-container">
+          <Chart rate={Math.round(this.state.conversionratio * 100)} />
+          <div className="chartdetails">
+            <h1 className="chartheader">{Math.round(this.state.conversionratio * 100)}%</h1>
+            <p className="charttext">CONVERSION RATE</p>
+          </div>
+        </div>
+
+        <div className="flex-small-boxes">
+          <div className="middlebox">
+            <h1 className="middleboxheader">{this.state.won}</h1>
+            <p className="middleboxtext">WON</p>
+          </div>
+          <div className="middlebox">
+            <h1 className="middleboxheader pink-text">{this.state.lost}</h1>
+            <p className="middleboxtext">LOST</p>
+          </div>
+        </div>
+
         <h1>Follow up</h1>
-        {tasksdone.map((task) => {
-          return <FollowUpCard id={task._id} action={task.action} to={task.toName} status={task.status} donedate={task.updated_at} reload={() => this.componentDidMount()} />
-        })}
-      </div>
+        {
+          tasksdone.map((task) => {
+            return <FollowUpCard id={task._id} action={task.action} to={task.toName} status={task.status} donedate={task.updated_at} reload={() => this.componentDidMount()} />
+          })
+        }
+      </div >
 
     )
   }
