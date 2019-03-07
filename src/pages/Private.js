@@ -15,6 +15,7 @@ class Private extends Component {
     lost: '',
     conversionratio: 0,
     tasksdone: [],
+    loaded: false,
   }
 
   handleColorBox = (number) => {
@@ -66,70 +67,82 @@ class Private extends Component {
           tasksdone: counterObject.done,
         })
       })
+      .then(() => {
+        this.setState({
+          loaded: true,
+        })
+      })
 
       .catch(error => console.log(error))
   }
 
   render() {
-    const { callsCounter, emailsCounter, meetingsCounter, contacts, tasks, conversionratio, won, lost, tasksdone } = this.state;
+    const { callsCounter, emailsCounter, meetingsCounter, contacts, tasks, conversionratio, won, lost, tasksdone, loaded } = this.state;
+    if (loaded) {
+      return (
+        <div>
+          <h2>My schedule</h2>
+          <div className="flex-small-boxes">
+            <div className={this.handleColorBox(callsCounter)}>
+              <h1>{callsCounter}</h1>
+              <p>CALLS</p>
+            </div>
+            <div className={this.handleColorBox(emailsCounter)}>
+              <h1>{emailsCounter}</h1>
+              <p>EMAILS</p>
+            </div>
+            <div className={this.handleColorBox(meetingsCounter)}>
+              <h1>{meetingsCounter}</h1>
+              <p>MEETINGS</p>
+            </div>
+          </div>
+          <h2>My stats</h2>
+          <div className="flex-small-boxes">
+            <div className="middlebox">
+              <h1 className="middleboxheader">{contacts}</h1>
+              <p className="middleboxtext">CONTACTS</p>
+            </div>
+            <div className="middlebox">
+              <h1 className="middleboxheader pink-text">{tasks}</h1>
+              <p className="middleboxtext">TASKS</p>
+            </div>
+          </div>
 
-    return (
-      <div>
-        <h2>My schedule</h2>
-        <div className="flex-small-boxes">
-          <div className={this.handleColorBox(callsCounter)}>
-            <h1>{callsCounter}</h1>
-            <p>CALLS</p>
+          <div className="chart-text-container">
+            <Chart rate={Math.round(conversionratio * 100)} />
+            <div className="chartdetails">
+              <h1 className="chartheader">{Math.round(conversionratio * 100)}%</h1>
+              <p className="charttext">CONVERSION RATE</p>
+            </div>
           </div>
-          <div className={this.handleColorBox(emailsCounter)}>
-            <h1>{emailsCounter}</h1>
-            <p>EMAILS</p>
+
+          <div className="flex-small-boxes">
+            <div className="middlebox">
+              <h1 className="middleboxheader">{won}</h1>
+              <p className="middleboxtext">WON</p>
+            </div>
+            <div className="middlebox">
+              <h1 className="middleboxheader pink-text">{lost}</h1>
+              <p className="middleboxtext">LOST</p>
+            </div>
           </div>
-          <div className={this.handleColorBox(meetingsCounter)}>
-            <h1>{meetingsCounter}</h1>
-            <p>MEETINGS</p>
-          </div>
+
+          <h1>Follow up</h1>
+          {
+            tasksdone.map((task) => {
+              return <FollowUpCard id={task._id} action={task.action} to={task.toName} status={task.status} donedate={task.updated_at} reload={() => this.componentDidMount()} />
+            })
+          }
+        </div >
+
+      )
+    } else {
+      return (
+        <div>
+          loading...
         </div>
-        <h2>My stats</h2>
-        <div className="flex-small-boxes">
-          <div className="middlebox">
-            <h1 className="middleboxheader">{contacts}</h1>
-            <p className="middleboxtext">CONTACTS</p>
-          </div>
-          <div className="middlebox">
-            <h1 className="middleboxheader pink-text">{tasks}</h1>
-            <p className="middleboxtext">TASKS</p>
-          </div>
-        </div>
-
-        <div className="chart-text-container">
-          <Chart rate={Math.round(conversionratio * 100)} />
-          <div className="chartdetails">
-            <h1 className="chartheader">{Math.round(conversionratio * 100)}%</h1>
-            <p className="charttext">CONVERSION RATE</p>
-          </div>
-        </div>
-
-        <div className="flex-small-boxes">
-          <div className="middlebox">
-            <h1 className="middleboxheader">{won}</h1>
-            <p className="middleboxtext">WON</p>
-          </div>
-          <div className="middlebox">
-            <h1 className="middleboxheader pink-text">{lost}</h1>
-            <p className="middleboxtext">LOST</p>
-          </div>
-        </div>
-
-        <h1>Follow up</h1>
-        {
-          tasksdone.map((task) => {
-            return <FollowUpCard id={task._id} action={task.action} to={task.toName} status={task.status} donedate={task.updated_at} reload={() => this.componentDidMount()} />
-          })
-        }
-      </div >
-
-    )
+      )
+    }
 
 
   }
