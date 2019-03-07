@@ -66,59 +66,57 @@ class Private extends Component {
           tasksdone: counterObject.done,
         })
       })
-      // .then(() => {
-      //   console.log(this.state);
-      // })
+
       .catch(error => console.log(error))
   }
 
   render() {
-    const { tasksdone } = this.state;
+    const { callsCounter, emailsCounter, meetingsCounter, contacts, tasks, conversionratio, won, lost, tasksdone } = this.state;
+
     return (
       <div>
-        {/* <h1>Welcome {user.name}</h1> */}
         <h2>My schedule</h2>
         <div className="flex-small-boxes">
-          <div className={this.handleColorBox(this.state.callsCounter)}>
-            <h1>{this.state.callsCounter}</h1>
+          <div className={this.handleColorBox(callsCounter)}>
+            <h1>{callsCounter}</h1>
             <p>CALLS</p>
           </div>
-          <div className={this.handleColorBox(this.state.emailsCounter)}>
-            <h1>{this.state.emailsCounter}</h1>
+          <div className={this.handleColorBox(emailsCounter)}>
+            <h1>{emailsCounter}</h1>
             <p>EMAILS</p>
           </div>
-          <div className={this.handleColorBox(this.state.meetingsCounter)}>
-            <h1>{this.state.meetingsCounter}</h1>
+          <div className={this.handleColorBox(meetingsCounter)}>
+            <h1>{meetingsCounter}</h1>
             <p>MEETINGS</p>
           </div>
         </div>
         <h2>My stats</h2>
         <div className="flex-small-boxes">
           <div className="middlebox">
-            <h1 className="middleboxheader">{this.state.contacts}</h1>
+            <h1 className="middleboxheader">{contacts}</h1>
             <p className="middleboxtext">CONTACTS</p>
           </div>
           <div className="middlebox">
-            <h1 className="middleboxheader pink-text">{this.state.tasks}</h1>
+            <h1 className="middleboxheader pink-text">{tasks}</h1>
             <p className="middleboxtext">TASKS</p>
           </div>
         </div>
 
         <div className="chart-text-container">
-          <Chart rate={Math.round(this.state.conversionratio * 100)} />
+          <Chart rate={Math.round(conversionratio * 100)} />
           <div className="chartdetails">
-            <h1 className="chartheader">{Math.round(this.state.conversionratio * 100)}%</h1>
+            <h1 className="chartheader">{Math.round(conversionratio * 100)}%</h1>
             <p className="charttext">CONVERSION RATE</p>
           </div>
         </div>
 
         <div className="flex-small-boxes">
           <div className="middlebox">
-            <h1 className="middleboxheader">{this.state.won}</h1>
+            <h1 className="middleboxheader">{won}</h1>
             <p className="middleboxtext">WON</p>
           </div>
           <div className="middlebox">
-            <h1 className="middleboxheader pink-text">{this.state.lost}</h1>
+            <h1 className="middleboxheader pink-text">{lost}</h1>
             <p className="middleboxtext">LOST</p>
           </div>
         </div>
@@ -132,6 +130,8 @@ class Private extends Component {
       </div >
 
     )
+
+
   }
 }
 

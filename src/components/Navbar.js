@@ -9,7 +9,6 @@ class NavBar extends Component {
     const { isLogged, logout } = this.props;
     if (isLogged) {
       return <div>
-
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Link to='/home'><Navbar.Brand>NTMY</Navbar.Brand></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -17,10 +16,8 @@ class NavBar extends Component {
             <Nav className="mr-auto">
               <Nav.Link ><Link to='/home' className="reset-link-decoration">Home</Link></Nav.Link>
               <Nav.Link> <Link to='/profile/me' className="reset-link-decoration">My profile</Link></Nav.Link>
-              <Nav.Link ><Link onClick={logout} className="reset-link-decoration" to='/'>Logout</Link></Nav.Link>
+              <Nav.Link onClick={logout}>Logout</Nav.Link>
             </Nav>
-
-
           </Navbar.Collapse>
         </Navbar>
       </div>

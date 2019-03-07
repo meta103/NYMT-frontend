@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { withAuth } from '../components/AuthProvider';
 import contacts from '../lib/contact-service';
 import { Redirect } from 'react-router';
-import '../app.css';
 import { Button, Alert } from 'react-bootstrap';
+import '../app.css';
 
 class Contact extends Component {
   state = {

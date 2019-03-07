@@ -31,6 +31,7 @@ class Login extends Component {
     return (
       <div className="white-background">
         <img src="images/NTMYlogo.png" alt="" className="img-resize" />
+        <h1>NTMY</h1>
         <Form onSubmit={this.handleFormSubmit}>
           <Form.Group>
             <Form.Label>Email:</Form.Label>
@@ -43,8 +44,8 @@ class Login extends Component {
           <Button type="submit" value="Login" className="addtask-done-button"> Login </Button>
         </Form>
 
-        <p>Don't you have an account?
-          <Link to={"/signup"}>Sign up</Link>
+        <p className="login-signup-text">Don't you have an account?
+        <Link className="reset-link-decoration-auth" to={"/signup"}> Sign up</Link>
         </p>
       </div>
     )
