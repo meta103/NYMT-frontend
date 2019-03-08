@@ -13,22 +13,6 @@ class Editprofile {
     return this.auth.put('/edit/profile', { name, surname, email, jobtitle, phone, company, address, linkedin })
       .then(({ data }) => data);
   }
-
-  // login(user) {
-  //   const { email, password } = user;
-  //   return this.auth.post('/auth/login', { email, password })
-  //     .then(({ data }) => data);
-  // }
-
-  // logout() {
-  //   return this.auth.post('/auth/logout', {})
-  //     .then(response => response.data)
-  // }
-
-  // me(user) {
-  //   return this.auth.get('/auth/me')
-  //     .then(response => response.data)
-  // }
 }
 
 const editprofile = new Editprofile();

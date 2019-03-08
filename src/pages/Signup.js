@@ -31,8 +31,6 @@ class Signup extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
     this.setState({ [name]: value });
   }
 
@@ -40,7 +38,6 @@ class Signup extends Component {
     const { name, email, password } = this.state;
     return (
       <div className="white-background">
-
         <img src="images/NTMYlogo.png" alt="" className="img-resize" />
         <h1>NTMY</h1>
         <Form onSubmit={this.handleFormSubmit}>
@@ -58,13 +55,10 @@ class Signup extends Component {
           </Form.Group>
           <Button type="submit" value="Signup" className="addtask-done-button"> Sign up </Button>
         </Form>
-
         <p className="login-signup-text">Already have account?
           <Link className="reset-link-decoration-auth" to={"/login"}> Login</Link>
         </p>
       </div>
-
-
     )
   }
 }

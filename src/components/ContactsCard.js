@@ -14,9 +14,7 @@ class ContactsCard extends Component {
             <p className="cccjobtitle">{this.props.jobtitle}</p>
           </Link>
         </div>
-
       )
-
     } else {
       return <div>
       </div>

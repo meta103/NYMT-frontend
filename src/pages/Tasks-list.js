@@ -33,9 +33,7 @@ class Taskslist extends Component {
       return this.setState({
         currentFilter: this.state.pendingTasksArray
       })
-
     }
-
   }
 
   componentDidMount = () => {
@@ -53,9 +51,6 @@ class Taskslist extends Component {
           lostTasksArray: lostTasks,
           currentFilter: pendingTasks,
         })
-      })
-      .then(() => {
-        console.log(this.state)
       })
       .catch(error => console.log(error))
   }

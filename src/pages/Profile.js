@@ -14,7 +14,6 @@ class Profile extends Component {
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-
               <p className="BCname">{name} <br /> {surname}</p>
               <p className="BCjobtitle">{jobtitle}</p>
               <p className="BCcompany">at {company}</p>
@@ -23,7 +22,6 @@ class Profile extends Component {
               <p className="BCdetailstipo BCcommonposition BCemail">{email} </p>
               <p className="BCdetailstipo BCcommonposition BClinkedin">{linkedin}</p>
               <p className="BCdetailstipo BCcommonposition BCaddress">{address}</p>
-
             </div>
             <div class="back">
               <div className="QRContainer2">
@@ -31,15 +29,10 @@ class Profile extends Component {
               </div>
               <p className="BCback-primary-text">SCAN ME</p>
               <p className="BCback-secondary-text">{name} {surname} will then be added to your contacts</p>
-
-
             </div>
           </div>
-
         </div>
-
         <Link to='/profile/me/edit' ><Button className="BCedit">Edit</Button></Link>
-
       </div>
     } else {
       return <div>
@@ -47,7 +40,6 @@ class Profile extends Component {
         <Link to='/signup'>Signup</Link>
       </div>
     }
-
   }
 }
 

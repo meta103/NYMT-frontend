@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import { withAuth } from '../components/AuthProvider';
 import contacts from '../lib/contact-service';
-// import { Redirect } from 'react-router';
 import ContactsCard from '../components/ContactsCard';
 
 class Contactlist extends Component {
@@ -14,9 +12,6 @@ class Contactlist extends Component {
   componentDidMount = () => {
     const userObject = this.props.user.contacts;
     contacts.showContactsList(userObject)
-      // .then((user) => {
-      //   return this.props.setUser(user)
-      // })
       .then((data) => {
         return this.setState({
           contactsArray: data
@@ -26,8 +21,6 @@ class Contactlist extends Component {
   }
 
   render() {
-    // if (this.state.loaded) {
-    //   return (
     return (
       <div>
         <h1>My contacts</h1>
@@ -38,7 +31,6 @@ class Contactlist extends Component {
 
     )
   }
-
 }
 
 

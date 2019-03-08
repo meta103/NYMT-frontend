@@ -96,6 +96,7 @@ class Private extends Component {
               <p>MEETINGS</p>
             </div>
           </div>
+
           <h2>My stats</h2>
           <div className="flex-small-boxes">
             <div className="middlebox">
@@ -134,7 +135,6 @@ class Private extends Component {
             })
           }
         </div >
-
       )
     } else {
       return (
@@ -143,8 +143,6 @@ class Private extends Component {
         </div>
       )
     }
-
-
   }
 }
 

@@ -24,22 +24,6 @@ class Contact {
     return this.contact.get('/contacts/list', userObject)
       .then((data) => data.data.contacts)
   }
-
-  // login(user) {
-  //   const { email, password } = user;
-  //   return this.auth.post('/auth/login', { email, password })
-  //     .then(({ data }) => data);
-  // }
-
-  // logout() {
-  //   return this.auth.post('/auth/logout', {})
-  //     .then(response => response.data)
-  // }
-
-  // me(user) {
-  //   return this.auth.get('/auth/me')
-  //     .then(response => response.data)
-  // }
 }
 
 const contacts = new Contact();

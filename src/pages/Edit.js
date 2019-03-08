@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import editprofile from '../lib/edit-service';
-//PARA IMPORTAR PROPS!!! Y ULTIMA LINEA! IMP
 import { withAuth } from '../components/AuthProvider';
 import { Redirect } from 'react-router';
 import { Button, Form } from 'react-bootstrap';
-
 
 class Login extends Component {
   state = {
@@ -42,7 +40,6 @@ class Login extends Component {
 
   render() {
     const { name, surname, email, jobtitle, phone, company, address, linkedin, redirect } = this.state;
-    //Para hacer redireccionamiento tras hacer click
     if (redirect) {
       return <Redirect to="/profile/me" />
     }

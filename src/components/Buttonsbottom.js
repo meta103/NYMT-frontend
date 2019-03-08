@@ -21,7 +21,6 @@ class Buttonsbottom extends Component {
         </Navbar>
 
       )
-
     } else {
       return <div>
       </div>

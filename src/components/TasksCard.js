@@ -8,7 +8,6 @@ class TasksCard extends Component {
     action: this.props.action,
   }
 
-
   render() {
     if (this.state.action === "email") {
       return (
@@ -62,10 +61,7 @@ class TasksCard extends Component {
         </div>
       )
     }
-
   }
-
-
 }
 
 export default withAuth()(TasksCard);

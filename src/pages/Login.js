@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service';
 import { Link } from 'react-router-dom';
-//import { AuthConsumer } from '../components/AuthProvider';
 import { Button, Form } from 'react-bootstrap';
 
 class Login extends Component {

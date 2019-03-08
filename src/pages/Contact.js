@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import { withAuth } from '../components/AuthProvider';
 import contacts from '../lib/contact-service';
 import { Redirect } from 'react-router';
-import { Button, Alert } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import '../app.css';
 
 class Contact extends Component {
@@ -19,9 +18,9 @@ class Contact extends Component {
     linkedin: '',
     redirect: false,
     isInContacts: false,
-
     idUser: this.props.match.params.id,
   }
+
   handleAsignATask = () => {
     return this.setState({
       redirect: true
@@ -33,12 +32,8 @@ class Contact extends Component {
     const userId = this.props.user._id;
     const contactsArray = this.props.user.contacts;
 
-    console.log(`ContactID: ${contactId} userID: ${userId} contactsArray: ${contactsArray}`)
-
-
     contacts.addContact({ contactId, userId, contactsArray })
       .then((user) => {
-        console.log('user', user.data)
         return this.props.setUser(user.data)
       })
       .then(() => {
@@ -50,13 +45,11 @@ class Contact extends Component {
   }
 
   componentDidMount = () => {
-    //event.preventDefault();
-    console.log('before: ', this.props)
     const contactId = this.props.match.params.id;
     const userContacts = this.props.user.contacts;
+
     contacts.findContact(contactId)
       .then((user) => {
-        console.log('userMount', user)
         this.setState({
           contactId: user._id,
           name: user.name,
@@ -71,15 +64,11 @@ class Contact extends Component {
       })
       .then(() => {
         if (userContacts.includes(this.state.contactId)) {
-          console.log("esta en contactos")
-          console.log('userIncludes', this.props)
           this.setState({
-
             isInContacts: true,
           })
         }
       })
-
       .catch(error => console.log(error))
   }
 
@@ -103,12 +92,9 @@ class Contact extends Component {
     } else {
       return (
         <div>
-
           <h1>{name}'s Business Card</h1>
           <div class="flip-container">
-
             <div class="front">
-
               <p className="BCname">{name} <br /> {surname}</p>
               <p className="BCjobtitle">{jobtitle}</p>
               <p className="BCcompany">at {company}</p>
@@ -117,16 +103,11 @@ class Contact extends Component {
               <p className="BCdetailstipo BCcommonposition BCemail">{email} </p>
               <p className="BCdetailstipo BCcommonposition BClinkedin">{linkedin}</p>
               <p className="BCdetailstipo BCcommonposition BCaddress">{address}</p>
-
-
               {this.showButtonContact()}
-
             </div>
           </div>
-
         </div>
       )
-
     }
   }
 }

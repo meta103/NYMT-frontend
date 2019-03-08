@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RadialChart, Hint } from 'react-vis';
+import { RadialChart } from 'react-vis';
 import { withAuth } from '../components/AuthProvider';
 
 class Chart extends Component {
@@ -8,7 +8,6 @@ class Chart extends Component {
     rest: 100 - this.props.rate,
   };
   render() {
-    const { value, rest } = this.state;
     return (
       <RadialChart
         className={'donut-chart-example'}
@@ -18,7 +17,6 @@ class Chart extends Component {
         data={[
           { theta: this.props.rate, color: '#57BC90' },
           { theta: 100 - this.props.rate, color: "#E36B7A" },
-
         ]}
         width={345}
         height={345}

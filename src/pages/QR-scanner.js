@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import QrCodeScanner from '@sensorfactdev/qr-code-scanner';
 import QrReader from "react-qr-reader-webcam-js";
 import { withAuth } from '../components/AuthProvider';
 import { Redirect } from 'react-router-dom';
@@ -16,19 +15,19 @@ class Test extends Component {
     this.handleScan = this.handleScan.bind(this);
   }
 
-
   handleScan(data) {
     if (data) {
       this.setState({
         result: data,
         redirect: true,
       })
-
     }
   }
+
   handleError(err) {
     console.error(err);
   }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={"/contacts/" + this.state.result} />

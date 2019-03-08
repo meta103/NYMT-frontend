@@ -17,6 +17,7 @@ class NewTask extends Component {
     redirect: false,
     status: 'pending',
   }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { owner, action, to, toId, date, notes, status } = this.state;
@@ -32,7 +33,6 @@ class NewTask extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    console.log(this.state)
   }
 
   render() {
@@ -51,7 +51,6 @@ class NewTask extends Component {
             <option>meeting</option>
           </Form.Control>
         </Form.Group>
-
         <Form.Group >
           <Form.Label><h2>To?</h2></Form.Label>
           <Form.Control name="to" type="text" value={to} onChange={this.handleChange} />

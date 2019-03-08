@@ -35,9 +35,6 @@ class Task {
     return this.tasks.put('/tasks/opp', object)
       .then(({ data }) => data)
   }
-
-
-
 }
 
 const task = new Task();

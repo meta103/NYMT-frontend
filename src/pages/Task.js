@@ -6,7 +6,6 @@ import { Redirect } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 class Task extends Component {
-
   state = {
     taskId: this.props.match.params.id,
     action: '',
@@ -25,10 +24,8 @@ class Task extends Component {
           status: data,
           redirect: true,
         });
-
       })
   }
-
 
   componentDidMount = () => {
     const { taskId } = this.state;
@@ -41,9 +38,6 @@ class Task extends Component {
           notes: data.notes,
           status: data.status,
         })
-      })
-      .then(() => {
-        console.log(this.state.tasksArray)
       })
       .catch(error => console.log(error))
   }
@@ -67,7 +61,6 @@ class Task extends Component {
           <Button onClick={this.handleForTaskDone} className="addtask-done-button" >DONE</Button>
         </div>
       )
-
     }
   }
 }

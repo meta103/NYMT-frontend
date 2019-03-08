@@ -19,9 +19,6 @@ import Task from './pages/Task';
 import Test from './pages/QR-scanner';
 import Landing from './pages/Landing';
 
-
-
-
 class App extends Component {
   render() {
     return (
@@ -44,9 +41,7 @@ class App extends Component {
               <PrivateRoute exact path="/scan" component={Test} />
             </Switch>
           </div>
-
           <Buttonsbottom />
-
         </div>
       </AuthProvider >
     )
