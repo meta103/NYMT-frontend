@@ -425,6 +425,7 @@ h2{
   display: flex;
   align-items: flex-end;
   flex-direction: row;
+  margin: 0 auto;
 }
 
 /* ################ DASHBOARD ################ */
@@ -482,6 +483,7 @@ h2{
   position: relative;
   height: 345px;
   width: 345px;
+  margin: 0 auto;
 }
 
 .chartheader{
