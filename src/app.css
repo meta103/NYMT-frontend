@@ -548,6 +548,7 @@ h2{
   background-color: rgba(245,245,245,0.3);
   height: 100vh;
   padding: 3vh;
+  max-width: 500px;
 }
 
 .white-background * {
