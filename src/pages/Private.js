@@ -76,6 +76,13 @@ class Private extends Component {
       .catch(error => console.log(error))
   }
 
+  handleConversionRate = value => {
+    if (isNaN(value)) {
+      return 0;
+    }
+    return Math.round(value * 100);
+  }
+
   render() {
     const { callsCounter, emailsCounter, meetingsCounter, contacts, tasks, conversionratio, won, lost, tasksdone, loaded } = this.state;
     if (loaded) {
@@ -110,9 +117,9 @@ class Private extends Component {
           </div>
 
           <div className="chart-text-container">
-            <Chart rate={Math.round(conversionratio * 100)} />
+            <Chart rate={this.handleConversionRate(conversionratio)} />
             <div className="chartdetails">
-              <h1 className="chartheader">{Math.round(conversionratio * 100)}%</h1>
+              <h1 className="chartheader">{this.handleConversionRate(conversionratio)}%</h1>
               <p className="charttext">CONVERSION RATE</p>
             </div>
           </div>
